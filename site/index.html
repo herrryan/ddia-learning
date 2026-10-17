@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDIA Study Guide — Designing Data-Intensive Applications</title>
+  <meta name="description" content="A chapter-by-chapter study guide for Martin Kleppmann's Designing Data-Intensive Applications: original notes, flashcards, quizzes, a glossary, and cross-cutting themes, with progress saved in your browser.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f8f6f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12161f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23c9622c'/%3E%3Cstop offset='.55' stop-color='%23247383'/%3E%3Cstop offset='1' stop-color='%235a7a3e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-weight='600' fill='white'%3ED%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem('ddia-study-guide.v1') || 'null');
+        var t = (s && s.theme) || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#view">Skip to content</a>
+
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar" aria-label="Site navigation">
+      <div class="sidebar__brand">
+        <a href="#/" id="brand-link">
+          <span class="brand-mark" aria-hidden="true">D</span>
+          <span class="brand-text"><strong>DDIA Study Guide</strong><span>Kleppmann · 12 chapters</span></span>
+        </a>
+      </div>
+      <div class="sidebar__progress" id="sidebar-progress"></div>
+      <nav class="nav" id="nav" aria-label="Chapters"></nav>
+    </aside>
+    <div class="backdrop" id="backdrop"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open navigation" aria-controls="sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <nav class="topbar__crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
+        <div class="topbar__spacer"></div>
+        <div class="search" role="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" id="search-input" placeholder="Search notes, terms, glossary…" aria-label="Search the study guide" autocomplete="off" spellcheck="false">
+          <span class="kbd" aria-hidden="true">/</span>
+          <div class="search-panel" id="search-panel" role="listbox" aria-label="Search results"></div>
+        </div>
+        <button class="btn btn--ghost btn--sm topbar__notes-btn" id="notes-dock-toggle" type="button" aria-expanded="false" aria-controls="notes-dock" title="Toggle parallel notes pane (N)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span class="topbar__notes-label">Notes</span>
+          <span class="chip chip--accent topbar__notes-count" id="notes-dock-count">0</span>
+        </button>
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme"></button>
+      </header>
+
+      <main id="view" tabindex="-1"></main>
+    </div>
+
+    <aside class="notes-dock" id="notes-dock" aria-label="Parallel notes workspace"></aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Content registry must load first; chapter files register into it. -->
+  <script src="js/content/registry.js"></script>
+  <script src="js/content/book.js"></script>
+  <script src="js/content/ch01.js"></script>
+  <script src="js/content/ch02.js"></script>
+  <script src="js/content/ch03.js"></script>
+  <script src="js/content/ch04.js"></script>
+  <script src="js/content/ch05.js"></script>
+  <script src="js/content/ch06.js"></script>
+  <script src="js/content/ch07.js"></script>
+  <script src="js/content/ch08.js"></script>
+  <script src="js/content/ch09.js"></script>
+  <script src="js/content/ch10.js"></script>
+  <script src="js/content/ch11.js"></script>
+  <script src="js/content/ch12.js"></script>
+  <script src="js/content/glossary.js"></script>
+
+  <!-- Application -->
+  <script src="js/markup.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

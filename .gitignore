@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Reference books / large binaries
+*.pdf
+
+# Python / virtual environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local runner
+run.sh
